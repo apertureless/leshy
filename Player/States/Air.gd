@@ -50,7 +50,7 @@ func physics_process(delta: float) -> void:
 		# Fucking weird way of doing ternary operations, without ternary operators
 		var target_state := "Move/Idle" if move.get_movement_direction().x == 0.0 else "Move/Run"
 		_state_machine.transition_to(target_state)
-	
+
 func enter(msg: Dictionary = {}) -> void:
 	var move = get_parent()
 	move.enter(msg)

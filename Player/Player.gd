@@ -15,3 +15,6 @@ func set_is_active(value: bool) -> void:
 	if not collider: 
 		return
 	collider.disabled = not value
+
+func _on_Dropzone_body_entered(body: Node) -> void:
+	get_tree().reload_current_scene()
