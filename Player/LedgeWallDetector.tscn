@@ -13,7 +13,7 @@ cast_to = Vector2( 15, 0 )
 collision_mask = 2
 
 [node name="RayTop" type="RayCast2D" parent="."]
-position = Vector2( 4.487, -19.2392 )
+position = Vector2( 4.487, -23.1083 )
 enabled = true
 exclude_parent = false
 cast_to = Vector2( 15, 0 )
