@@ -4,7 +4,9 @@ var scene_path : String
 onready var fade = $FadeIn
 
 func _ready() -> void:
+	# Grab focus, so menu can be used with keyboard
 	$Menu/CenterRow/Buttons/NewGameButton.grab_focus()
+	
 	for button in $Menu/CenterRow/Buttons.get_children():
 		button.connect("pressed", self, "on_Button_pressed", [button.scene_to_load])
 		

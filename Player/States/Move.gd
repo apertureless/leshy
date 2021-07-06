@@ -12,6 +12,7 @@ var acceleration := acceleration_default
 var max_speed := max_speed_default
 var velocity := Vector2.ZERO
 var dash_count := 0
+var dash_direction := Vector2.ZERO
 
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() and event.is_action_pressed("jump"):
@@ -30,6 +31,7 @@ func physics_process(delta: float) -> void:
 	
 	# Flip sprite 
 	if _dir.x != 0.0:
+		dash_direction = _dir
 		owner.skin.set_flip_h(_dir.x > 0)
 	
 	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
