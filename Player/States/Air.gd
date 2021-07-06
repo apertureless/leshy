@@ -22,7 +22,7 @@ func unhandled_input(event: InputEvent) -> void:
 	if move.dash_count == 0 and event.is_action_pressed("dash"):
 		move.dash_count += 1
 		_state_machine.transition_to("Move/Dash", { 
-			direction = Vector2(move.get_movement_direction().normalized().x, 0.0)
+			direction = Vector2(move.dash_direction.normalized().x, 0.0)
 		})
 		return
 		
