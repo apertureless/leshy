@@ -4,6 +4,8 @@ extends KinematicBody2D
 onready var state_machine: StateMachine = $StateMachine
 onready var collider: CollisionShape2D = $CollisionShape2D
 onready var skin: Node2D = $Skin
+onready var ledge_detector: LedgeWallDetector = $LedgeWallDetector
+onready var floor_detector: FloorDetector = $FloorDetector
 
 const FLOOR_NORMAL := Vector2.UP
 
