@@ -50,8 +50,6 @@ static func calculate_velocity(
 	new_velocity.x = clamp(new_velocity.x, -max_speed.x, max_speed.x)
 	new_velocity.y = clamp(new_velocity.y, -max_speed.y, max_speed_fall)
 	
-	print("new velocity", new_velocity)
-	
 	return new_velocity
 
 static func get_movement_direction() -> Vector2:

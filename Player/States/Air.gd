@@ -45,11 +45,16 @@ func physics_process(delta: float) -> void:
 	if move.velocity.y >= 0.0:
 		owner.skin.play("jump_down")
 	
+	# Landing on floor
 	if owner.is_on_floor():
 		move.dash_count = 0
 		# Fucking weird way of doing ternary operations, without ternary operators
 		var target_state := "Move/Idle" if move.get_movement_direction().x == 0.0 else "Move/Run"
 		_state_machine.transition_to(target_state)
+		
+	elif owner.ledge_detector.is_against_ledge():
+		print('is against ledge', owner.ledge_detector.is_against_ledge())
+		_state_machine.transition_to("Ledge", { move_state = move })
 
 func enter(msg: Dictionary = {}) -> void:
 	var move = get_parent()

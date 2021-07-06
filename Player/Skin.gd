@@ -11,8 +11,12 @@ func _ready() -> void:
 func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
 	emit_signal("animation_finished", anim_name)
 	
-func play(anim_name: String) -> void:
+func play(anim_name: String, data: Dictionary = {}) -> void:
 	assert(anim_name in animation_player.get_animation_list())
+	
+	if "from" in data:
+		position = data.from
+	animation_player.stop()
 	animation_player.play(anim_name)
 
 func set_flip_h(value: bool) -> void: 

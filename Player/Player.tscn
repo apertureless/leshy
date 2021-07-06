@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Player/Skin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/States/Die.gd" type="Script" id=9]
 [ext_resource path="res://Player/States/Dash.gd" type="Script" id=10]
+[ext_resource path="res://Player/LedgeWallDetector.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Player/States/Ledge.gd" type="Script" id=12]
+[ext_resource path="res://Player/FloorDetector.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.61843, 6.01799 )
@@ -70,3 +73,10 @@ one_shot = true
 
 [node name="Die" type="Node" parent="StateMachine"]
 script = ExtResource( 9 )
+
+[node name="Ledge" type="Node" parent="StateMachine"]
+script = ExtResource( 12 )
+
+[node name="LedgeWallDetector" parent="." instance=ExtResource( 11 )]
+
+[node name="FloorDetector" parent="." instance=ExtResource( 13 )]
