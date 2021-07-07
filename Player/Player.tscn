@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Player/LedgeWallDetector.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Player/States/Ledge.gd" type="Script" id=12]
 [ext_resource path="res://Player/FloorDetector.tscn" type="PackedScene" id=13]
+[ext_resource path="res://World/light.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.61843, 6.01799 )
@@ -80,3 +81,7 @@ script = ExtResource( 12 )
 [node name="LedgeWallDetector" parent="." instance=ExtResource( 11 )]
 
 [node name="FloorDetector" parent="." instance=ExtResource( 13 )]
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 14 )
+color = Color( 1, 1, 1, 0.52549 )
