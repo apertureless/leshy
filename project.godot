@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Door",
+"language": "GDScript",
+"path": "res://World/House/Door.gd"
+}, {
 "base": "RayCast2D",
 "class": "FloorDetector",
 "language": "GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://Engine/FSM/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"Door": "",
 "FloorDetector": "",
 "LedgeWallDetector": "",
 "Player": "",
@@ -138,5 +144,5 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 2d/snapping/use_gpu_pixel_snap=true
-environment/default_clear_color=Color( 0.0352941, 0.0941176, 0.215686, 1 )
+environment/default_clear_color=Color( 0.231373, 0.0235294, 0.227451, 1 )
 environment/default_environment="res://default_env.tres"
