@@ -21,4 +21,6 @@ func set_is_active(value: bool) -> void:
 # Dropzone is a collider under the map. So if the player
 # falls through it, he will die.
 func _on_Dropzone_body_entered(body: Node) -> void:
-	get_tree().reload_current_scene()
+	var err := get_tree().reload_current_scene()
+	if err: 
+		print("Error releoading current scene after Dropzone hit")

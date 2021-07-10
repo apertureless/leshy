@@ -10,10 +10,14 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("debug_spawn"):
-		get_tree().reload_current_scene()
+		var err = get_tree().reload_current_scene()
+		if err:
+			print("Error reloading current scene")
 		
 	if event.is_action_pressed("exit"):
-		get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+		var err = get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+		if err:
+			print("Error changing to title screen")
 
 func set_camera_limits() -> void:
 	var map_limits = tiles.get_used_rect()

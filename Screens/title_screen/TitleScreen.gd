@@ -25,4 +25,8 @@ func on_Button_pressed(scene: String) -> void:
 
 func _on_FadeIn_fade_finished() -> void:
 	if scene_path != "":
-		get_tree().change_scene(scene_path)
+		var err = get_tree().change_scene(scene_path)
+		
+		if err:
+			print("Error loading Scene in FadeIn", scene_path)
+		

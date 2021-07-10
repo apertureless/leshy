@@ -6,9 +6,11 @@ func _ready() -> void:
 	yield(owner, "ready")
 	_start_position = owner.position
 
+# warning-ignore:unused_argument
 func _on_Skin_animation_finished(anim_name: String) -> void:
 	_state_machine.transition_to("Move/Idle")
-	 
+
+# warning-ignore:unused_argument	 
 func enter(msg: Dictionary = {}) -> void:
 	owner.is_active = false
 	owner.position = _start_position
