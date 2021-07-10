@@ -15,7 +15,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			print("Error reloading current scene")
 		
 	if event.is_action_pressed("exit"):
-		var err = get_tree().change_scene("res://Scenes/TitleScreen.tscn")
+		var err = get_tree().change_scene("res://Screens/title_screen/TitleScreen.tscn")
 		if err:
 			print("Error changing to title screen")
 
