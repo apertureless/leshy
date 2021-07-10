@@ -16,7 +16,7 @@ func play(anim_name: String, data: Dictionary = {}) -> void:
 	
 	if "from" in data:
 		position = data.from
-	animation_player.stop()
+	#animation_player.stop()
 	animation_player.play(anim_name)
 
 func set_flip_h(value: bool) -> void: 

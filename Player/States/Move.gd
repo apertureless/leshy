@@ -35,7 +35,6 @@ func physics_process(delta: float) -> void:
 		owner.ledge_detector.scale.x = sign(_dir.x)
 		owner.skin.set_flip_h(_dir.x > 0)
 		
-	
 	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
 	Events.emit_signal("player_moved", owner)
 

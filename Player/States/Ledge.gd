@@ -1,7 +1,6 @@
 extends State
 
 func enter(msg: Dictionary = {}) -> void:
-	print("ledge State")
 	assert("move_state" in msg and msg.move_state is State)
 	
 	owner.skin.connect(

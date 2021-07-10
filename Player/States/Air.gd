@@ -77,7 +77,6 @@ func physics_process(delta: float) -> void:
 		_state_machine.transition_to(target_state)
 		
 	elif owner.ledge_detector.is_against_ledge():
-		print('is against ledge', owner.ledge_detector.is_against_ledge())
 		_state_machine.transition_to("Ledge", { move_state = move })
 		
 	if owner.is_on_wall():

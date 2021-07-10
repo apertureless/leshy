@@ -13,7 +13,6 @@ func unhandled_input(event: InputEvent) -> void:
 		jump()
 
 func physics_process(delta: float) -> void:
-	print("vel", _velocity)
 	if _velocity.y > max_slide_speed:
 		_velocity.y = lerp(_velocity.y, max_slide_speed, friction_factor)
 	else:
@@ -28,11 +27,10 @@ func physics_process(delta: float) -> void:
 	var is_moving_away_from_wall := sign(move.get_movement_direction().x) == sign(_wall_normal)
 	
 	if is_moving_away_from_wall or not owner.ledge_detector.is_against_wall():
-		print("transition to air", _velocity)
 		_state_machine.transition_to("Move/Air", { velocity = _velocity })
 		
 	if owner.ledge_detector.is_against_ledge():
-		_state_machine.transition_to("Ledge", { velocity = _velocity })
+		_state_machine.transition_to("Ledge", { move_state = move, velocity = _velocity })
 
 func enter(msg: Dictionary = {}) -> void:
 	var move = get_parent()
