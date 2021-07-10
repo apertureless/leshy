@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Door",
 "language": "GDScript",
-"path": "res://World/House/Door.gd"
+"path": "res://zones/fox_house/Door.gd"
 }, {
 "base": "RayCast2D",
 "class": "FloorDetector",
@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Plattformer"
-run/main_scene="res://Scenes/TitleScreen.tscn"
+run/main_scene="res://Screens/title_screen/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]

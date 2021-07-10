@@ -13,7 +13,7 @@
 [ext_resource path="res://Player/LedgeWallDetector.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Player/States/Ledge.gd" type="Script" id=12]
 [ext_resource path="res://Player/FloorDetector.tscn" type="PackedScene" id=13]
-[ext_resource path="res://World/light.png" type="Texture" id=14]
+[ext_resource path="res://assets/light.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.61843, 6.01799 )
