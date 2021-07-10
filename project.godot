@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Area2D",
-"class": "Door",
-"language": "GDScript",
-"path": "res://zones/fox_house/Door.gd"
-}, {
 "base": "RayCast2D",
 "class": "FloorDetector",
 "language": "GDScript",
@@ -23,6 +18,11 @@ _global_script_classes=[ {
 "class": "LedgeWallDetector",
 "language": "GDScript",
 "path": "res://Player/LedgeWallDetector.gd"
+}, {
+"base": "Node",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Engine/Level/Level.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -40,9 +40,9 @@ _global_script_classes=[ {
 "path": "res://Engine/FSM/StateMachine.gd"
 } ]
 _global_script_class_icons={
-"Door": "",
 "FloorDetector": "",
 "LedgeWallDetector": "",
+"Level": "",
 "Player": "",
 "State": "",
 "StateMachine": ""
