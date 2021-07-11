@@ -6,7 +6,8 @@ onready var player_camera := $Player/Camera2D
 onready var tiles := $GroundTiles
 
 func _ready() -> void:
-	_set_camera()
+	call_deferred( "_set_player" )
+	call_deferred( "_set_camera" )
 	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_spawn"):
@@ -29,15 +30,24 @@ func _set_camera() -> void:
 	player_camera.limit_bottom = map_limits.end.y * map_cell_size.y
 	
 func _set_player() -> void:
+	print("Setting player position")
 	if player == null:
 		print("Player not found in this scene")
-		
-	# Check in global game state if theres a current position saved
-	# WIP need to implement global game state
+		return
 	
-	var start_position = find_node("StartingPosition")
+	if Gamestate.state.keys().find("current_position") != -1 and \
+		not Gamestate.state.current_position.empty():
+			var start_pos = find_node(Gamestate.state.current_position)
+			if start_pos == null:
+				print("Start position not found")
+			else:
+				if Game.debug: print("Level start at", start_pos.name)
+				player.global_position = start_pos.global_position
 	
-	if start_position == null:
-		print("Starting Position not found")
 	else:
-		player.global_position = start_position.global_position
+		var start_position = find_node("StartingPosition")
+		
+		if start_position == null:
+			print("Starting Position not found")
+		else:
+			player.global_position = start_position.global_position

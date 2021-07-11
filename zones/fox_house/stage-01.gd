@@ -9,5 +9,13 @@ func _ready() -> void:
 	t.start()
 	
 func _connect_areas() -> void:
-	pass
+	var _ret = $FinishingPosition.connect("body_entered", self, "_on_entering_finish_area")
+
 	
+func _on_entering_finish_area(_body) -> void:
+	print("finished")
+	Gamestate.state.current_level = "res://zones/forest/stage-01.tscn"
+	Gamestate.state.current_position = "StartingPosition"
+	Gamestate.state.current_dir = 1
+	print("GameState", Gamestate.state)
+	Game.main.load_gamestate()

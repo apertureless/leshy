@@ -24,9 +24,19 @@ func on_Button_pressed(scene: String) -> void:
 
 
 func _on_FadeIn_fade_finished() -> void:
-	if scene_path != "":
-		var err = get_tree().change_scene(scene_path)
+	start_new_game()
 		
-		if err:
-			print("Error loading Scene in FadeIn", scene_path)
-		
+
+func start_new_game():
+	Gamestate.initiate()
+	Gamestate.state.current_level = "res://zones/fox_house/stage-01.tscn"
+	Gamestate.state.current_position = "StartingPosition"
+	Gamestate.state.current_dir = 1
+	Gamestate.state.active_checkpoint = [ \
+		Gamestate.state.current_position, \
+		Gamestate.state.current_level ]
+	
+	# save the new game, overlapping the old one
+	# var _ret = Gamestate.save_gamestate()
+	
+	Game.main.load_gamestate()
