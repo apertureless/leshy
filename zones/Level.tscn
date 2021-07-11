@@ -16,4 +16,14 @@ format = 1
 
 [node name="Dropzone" parent="." instance=ExtResource( 3 )]
 
+[node name="StartingPosition" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartingPosition"]
+
+[node name="FinishingPosition" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishingPosition"]
+
 [connection signal="body_entered" from="Dropzone" to="Player" method="_on_Dropzone_body_entered"]

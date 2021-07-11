@@ -150,4 +150,6 @@ texture = ExtResource( 5 )
 texture_scale = 0.27
 color = Color( 0.960784, 0.780392, 0.34902, 1 )
 
+[connection signal="body_entered" from="Dropzone" to="Player" method="_on_Dropzone_body_entered"]
+
 [editable path="Player"]

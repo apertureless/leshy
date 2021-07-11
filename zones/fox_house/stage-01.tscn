@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://zones/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tileset_fox_dirt_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://zones/fox_house/stage-01.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.3755, 20.2664 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.5146, 21.907 )
 
 [node name="stage-01" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="Background" type="TileMap" parent="." index="0"]
 tile_set = ExtResource( 2 )
@@ -20,3 +28,11 @@ position = Vector2( -96.1782, -2.33549 )
 
 [node name="Dropzone" parent="." index="3"]
 position = Vector2( 3479.41, -256.23 )
+
+[node name="CollisionShape2D" parent="StartingPosition" index="0"]
+position = Vector2( -192.355, -20.4633 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" parent="FinishingPosition" index="0"]
+position = Vector2( 3055.92, -709.404 )
+shape = SubResource( 2 )

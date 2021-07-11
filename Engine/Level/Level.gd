@@ -27,3 +27,17 @@ func _set_camera() -> void:
 	player_camera.limit_right = map_limits.end.x * map_cell_size.x
 	player_camera.limit_top = map_limits.position.y * map_cell_size.y
 	player_camera.limit_bottom = map_limits.end.y * map_cell_size.y
+	
+func _set_player() -> void:
+	if player == null:
+		print("Player not found in this scene")
+		
+	# Check in global game state if theres a current position saved
+	# WIP need to implement global game state
+	
+	var start_position = find_node("StartingPosition")
+	
+	if start_position == null:
+		print("Starting Position not found")
+	else:
+		player.global_position = start_position.global_position
