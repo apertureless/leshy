@@ -7,14 +7,17 @@ extends Node
 onready var _state_machine := _get_state_machine(self)
 
 # Virtual unhandled_input function
+# warning-ignore:unused_argument
 func unhandled_input(event: InputEvent) -> void:
 	pass
 
 # Virtual physics_process function
+# warning-ignore:unused_argument
 func physics_process(delta: float) -> void:
 	pass
 	
 # Enter a state
+# warning-ignore:unused_argument
 func enter(msg: Dictionary = {}) -> void:
 	pass
 	

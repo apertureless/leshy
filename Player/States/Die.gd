@@ -3,7 +3,7 @@ extends State
 func _ready() -> void:
 	yield(owner, "ready")
 	
-
+# warning-ignore:unused_argument
 func _on_Skin_animation_finished(anim_name: String) -> void:
 	_state_machine.transition_to("Spawn")
 	 

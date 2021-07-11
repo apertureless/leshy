@@ -1,7 +1,6 @@
 extends State
 
 func enter(msg: Dictionary = {}) -> void:
-	print("ledge State")
 	assert("move_state" in msg and msg.move_state is State)
 	
 	owner.skin.connect(
@@ -14,7 +13,6 @@ func enter(msg: Dictionary = {}) -> void:
 	
 	var start: Vector2 = owner.global_position
 	var ld: LedgeWallDetector = owner.ledge_detector
-	print("moving player")
 	owner.global_position = ld.get_top_global_position() + ld.get_cast_to_direction()
 	owner.global_position = owner.floor_detector.get_floor_position()
 	
