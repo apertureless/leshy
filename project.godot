@@ -51,12 +51,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Plattformer"
-run/main_scene="res://Screens/title_screen/TitleScreen.tscn"
+run/main_scene="res://Screens/main/main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Events="*res://Engine/Autoload/Events.gd"
+Gamestate="*res://Engine/GameState/gamestate.gd"
+Game="*res://Engine/GameState/game.gd"
 
 [display]
 
