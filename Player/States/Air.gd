@@ -54,13 +54,14 @@ func physics_process(delta: float) -> void:
 		direction,
 		move.max_fall_speed
 	)
+	
 #
 #	# Flip sprite 
 	if direction.x != 0.0:
 		move.dash_direction = direction
 		owner.skin.set_flip_h(direction.x > 0)
 		owner.ledge_detector.scale.x = sign(direction.x)
-	
+
 	move.velocity = owner.move_and_slide(move.velocity, owner.FLOOR_NORMAL)
 	Events.emit_signal("player_moved", owner)
 	
