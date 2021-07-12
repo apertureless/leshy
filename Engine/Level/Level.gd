@@ -51,3 +51,15 @@ func _set_player() -> void:
 			print("Starting Position not found")
 		else:
 			player.global_position = start_position.global_position
+			
+	player.connect( "player_dead", self, "_on_player_dead" )
+			
+func _on_player_dead() -> void:
+	if Game.main == null:
+		var _ret = get_tree().reload_current_scene()
+	else:
+		var _ret = Gamestate.load_gamestate()
+		Gamestate.state.current_position = Gamestate.state.active_checkpoint[0]
+		Gamestate.state.current_level = Gamestate.state.active_checkpoint[1]
+		
+		Game.main.load_gamestate()

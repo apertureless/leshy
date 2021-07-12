@@ -40,11 +40,19 @@ func _get_initial_gamestate() -> Dictionary:
 		"can_dash": true
 	}
 
+# Public save gamestate function
+func save_gamestate() -> bool:
+	return _save_gamestate()
+
 # Save gamestate to file?
 func _save_gamestate() -> bool:
 	pass
 	return true
 
+# Public load gamestate method
+func load_gamestate() -> Dictionary:
+	return _load_gamestate()
+	
 # Load gamestate from file
 func _load_gamestate() -> Dictionary:
 	return {}
