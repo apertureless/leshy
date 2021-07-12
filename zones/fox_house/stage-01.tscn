@@ -50,10 +50,10 @@ position = Vector2( -0.144043, 1.5426 )
 shape = SubResource( 2 )
 
 [node name="BrokenBridge" type="Sprite" parent="." index="7"]
-position = Vector2( 1778.69, -400.072 )
+position = Vector2( 1783.81, -404.842 )
 texture = ExtResource( 5 )
 
 [node name="BrokenBridge2" type="Sprite" parent="." index="8"]
-position = Vector2( 2010.84, -400.174 )
+position = Vector2( 2009.03, -403.97 )
 texture = ExtResource( 5 )
 flip_h = true
