@@ -46,7 +46,10 @@ tile_data = PoolIntArray( -4652926, 0, 0, -4652925, 0, 1, -4652924, 0, 1, -46529
 position = Vector2( 68.8359, -70.5199 )
 
 [node name="Dropzone" parent="." index="7"]
-position = Vector2( 3479.41, -256.23 )
+position = Vector2( 1884.05, -210.998 )
+
+[node name="CollisionShape2D" parent="Dropzone" index="0"]
+scale = Vector2( 40, 1 )
 
 [node name="StartingPosition" parent="." index="8"]
 position = Vector2( -248.759, -20.5268 )
@@ -56,13 +59,15 @@ position = Vector2( -0.225601, -0.587873 )
 shape = SubResource( 1 )
 
 [node name="FinishingPosition" parent="." index="9"]
-position = Vector2( 3064.98, -746.583 )
+position = Vector2( 3012.71, -692.612 )
 
 [node name="CollisionShape2D" parent="FinishingPosition" index="0"]
-position = Vector2( -54.0837, 37.4518 )
+position = Vector2( -0.749958, -16.5195 )
 shape = SubResource( 2 )
 
 [node name="BrokenBridge2" type="Sprite" parent="." index="10"]
 position = Vector2( 2009.03, -403.97 )
 texture = ExtResource( 5 )
 flip_h = true
+
+[editable path="Dropzone"]
