@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player/States/Spawn.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Player/FloorDetector.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/light.png" type="Texture" id=14]
 [ext_resource path="res://Player/States/Wall.gd" type="Script" id=15]
+[ext_resource path="res://assets/jump.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.61843, 6.01799 )
@@ -96,3 +97,8 @@ enabled = false
 texture = ExtResource( 14 )
 color = Color( 1, 1, 1, 0.52549 )
 shadow_gradient_length = 490.1
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+
+[node name="walk" type="AudioStreamPlayer2D" parent="."]

@@ -17,6 +17,7 @@ var dash_direction := Vector2.ZERO
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() and event.is_action_pressed("jump"):
 		_state_machine.transition_to("Move/Air", { impulse = jump_impulse })
+		owner.play_jump()
 	
 func physics_process(delta: float) -> void:
 	var _dir = get_movement_direction()

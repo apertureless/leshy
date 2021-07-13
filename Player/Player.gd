@@ -20,6 +20,9 @@ func set_is_active(value: bool) -> void:
 		return
 	collider.disabled = not value
 
+func play_jump() -> void:
+	print("play jump audio")
+	$jump.play()
 # Dropzone is a collider under the map. So if the player
 # falls through it, he will die.
 func _on_Dropzone_body_entered(body: Node) -> void:
