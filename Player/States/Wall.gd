@@ -29,8 +29,8 @@ func physics_process(delta: float) -> void:
 	if is_moving_away_from_wall or not owner.ledge_detector.is_against_wall():
 		_state_machine.transition_to("Move/Air", { velocity = _velocity })
 		
-	if owner.ledge_detector.is_against_ledge():
-		_state_machine.transition_to("Ledge", { move_state = move, velocity = _velocity })
+#	if owner.ledge_detector.is_against_ledge():
+#		_state_machine.transition_to("Ledge", { move_state = move, velocity = _velocity })
 
 func enter(msg: Dictionary = {}) -> void:
 	var move = get_parent()
