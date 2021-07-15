@@ -5,5 +5,8 @@
 ## Movement
 
 - `WASD`
-- `E` for dash
-- `#` to restart
+- `E` for wall grab
+- `C` for dash
+- `ESC` to menu
+
+Works best with controller!
