@@ -77,7 +77,7 @@ func physics_process(delta: float) -> void:
 		var target_state := "Move/Idle" if move.get_movement_direction().x == 0.0 else "Move/Run"
 		_state_machine.transition_to(target_state)
 		
-	elif owner.ledge_detector.is_against_ledge():
+	elif Gamestate.state.can_ledge && owner.ledge_detector.is_against_ledge():
 		_state_machine.transition_to("Ledge", { move_state = move })
 		
 	if owner.is_on_wall():
