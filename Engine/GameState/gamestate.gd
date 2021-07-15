@@ -36,9 +36,9 @@ func _get_initial_gamestate() -> Dictionary:
 		"current_level": "",
 		"current_position": "",
 		"current_dir": 1,
-		"can_double_jump": false,
-		"can_wall_jump": false,
-		"can_dash": false,
+		"can_double_jump": true,
+		"can_wall_jump": true,
+		"can_dash": true,
 		"can_ledge": false
 	}
 
