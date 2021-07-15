@@ -18,6 +18,7 @@ func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() and event.is_action_pressed("jump"):
 		_state_machine.transition_to("Move/Air", { impulse = jump_impulse })
 		owner.play_jump()
+		
 	
 func physics_process(delta: float) -> void:
 	var _dir = get_movement_direction()
@@ -65,3 +66,14 @@ func enter(msg: Dictionary = {}) -> void:
 	
 func exit() -> void:
 	$Air.disconnect("jumped", $Idle.jump_delay, "start")
+
+
+func _run_dust() -> void:
+	var d = preload("res://Player/Dust/Run.tscn").instance()
+	var dir = get_movement_direction()
+	d.scale.x = dir.x
+	d.position = owner.global_position
+	owner.get_parent().add_child(d)
+	
+func _on_Skin_run_dust() -> void:
+	_run_dust()

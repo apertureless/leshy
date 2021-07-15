@@ -1,6 +1,7 @@
 extends Node2D
 
 signal animation_finished(anim_name)
+signal run_dust
 
 onready var animation_player: AnimationPlayer = $AnimationPlayer
 onready var sprite: Sprite = $Sprite
@@ -21,3 +22,6 @@ func play(anim_name: String, data: Dictionary = {}) -> void:
 
 func set_flip_h(value: bool) -> void: 
 	sprite.flip_h = value
+
+func run_dust() -> void:
+	emit_signal("run_dust")

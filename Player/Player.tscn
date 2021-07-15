@@ -101,3 +101,5 @@ shadow_gradient_length = 490.1
 stream = ExtResource( 16 )
 
 [node name="walk" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="run_dust" from="Skin" to="StateMachine/Move" method="_on_Skin_run_dust"]

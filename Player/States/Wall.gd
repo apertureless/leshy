@@ -7,23 +7,34 @@ export var jump_strength:= Vector2(300.0, 600.0)
 
 var _wall_normal := -1.0
 var _velocity := Vector2.ZERO
+var particle_timer := 0.05
 
 func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump"):
 		jump()
 
 func physics_process(delta: float) -> void:
+	var move = get_parent()
+	var dir = 1 if move.get_movement_direction().x > 0.0 else -1
 	if _velocity.y > max_slide_speed:
 		_velocity.y = lerp(_velocity.y, max_slide_speed, friction_factor)
 	else:
 		_velocity.y += slide_acceleration * delta
+	
+	particle_timer -= delta
+	if particle_timer <= 0:
+		particle_timer = 0.2
+		var p = preload("res://Player/Dust/WallSlide.tscn").instance()
+		p.position = owner.global_position + Vector2( 4 * dir, 0 )
+		p.scale.x = dir
+		owner.get_parent().add_child( p )
 	#_velocity.y = clamp(_velocity.y, -max_slide_speed, max_slide_speed)
 	_velocity = owner.move_and_slide(_velocity, owner.FLOOR_NORMAL)
 	
 	if owner.is_on_floor():
 		_state_machine.transition_to("Move/Idle")
 		
-	var move = get_parent()
+
 	var is_moving_away_from_wall := sign(move.get_movement_direction().x) == sign(_wall_normal)
 	
 	if is_moving_away_from_wall or not owner.ledge_detector.is_against_wall():

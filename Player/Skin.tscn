@@ -126,6 +126,23 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 6, 7, 8, 9, 10, 11 ]
 }
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "run_dust"
+}, {
+"args": [  ],
+"method": "run_dust"
+} ]
+}
 
 [sub_resource type="Animation" id=7]
 length = 0.001
@@ -247,7 +264,7 @@ position = Vector2( 0, -19 )
 texture = ExtResource( 1 )
 hframes = 6
 vframes = 3
-frame = 13
+frame = 11
 __meta__ = {
 "_editor_description_": ""
 }
