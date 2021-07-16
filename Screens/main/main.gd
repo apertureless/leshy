@@ -96,6 +96,7 @@ func _on_screentimer_timeout() -> void:
 
 
 func _on_gamestate_change() -> void:
+	# Activate hud elements like life etc
 	pass
 
 
