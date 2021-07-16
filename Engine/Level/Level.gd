@@ -10,11 +10,7 @@ func _ready() -> void:
 	call_deferred( "_set_camera" )
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("debug_spawn"):
-		var err = get_tree().reload_current_scene()
-		if err:
-			print("Error reloading current scene")
-		
+	# TODO remove and make a proper pause menu	
 	if event.is_action_pressed("exit"):
 		var err = get_tree().change_scene("res://Screens/title_screen/TitleScreen.tscn")
 		if err:

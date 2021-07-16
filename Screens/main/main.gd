@@ -4,6 +4,9 @@ extends Node2D
 const FIRST_SCREEN = ""
 const MENU_SCREEN = "res://Screens/title_screen/TitleScreen.tscn"
 
+onready var anim = $FadeLayer/AnimationPlayer
+onready var hud = $HUDLayer
+
 var load_state = 0
 var current_screen = null
 
@@ -22,8 +25,9 @@ func load_gamestate() -> void:
 	match load_state:
 		0: 
 			# Fade Out
+			anim.play("fade_out")
 			load_state = 1
-			$loadtimer.set_wait_time( 0.2 )
+			$loadtimer.set_wait_time( 0.5 )
 			$loadtimer.start()
 		1:
 			# Hide Hud etc.
@@ -31,7 +35,7 @@ func load_gamestate() -> void:
 			if not children.empty():
 				children[0].queue_free()
 			load_state = 2
-			$loadtimer.set_wait_time( 0.05 )
+			$loadtimer.set_wait_time( 0.1 )
 			$loadtimer.start()
 		2:
 			var new_level = load(Gamestate.state.current_level).instance()
@@ -43,6 +47,7 @@ func load_gamestate() -> void:
 			$loadtimer.start()
 		3:
 			# Fade In Animation
+			anim.play("fade_in")
 			load_state = 4
 			$loadtimer.set_wait_time( 0.3 )
 			$loadtimer.start()
@@ -91,6 +96,7 @@ func _on_screentimer_timeout() -> void:
 
 
 func _on_gamestate_change() -> void:
+	# Activate hud elements like life etc
 	pass
 
 
