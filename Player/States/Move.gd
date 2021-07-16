@@ -13,11 +13,19 @@ var max_speed := max_speed_default
 var velocity := Vector2.ZERO
 var dash_count := 0
 var dash_direction := Vector2.ZERO
+var is_wall_sliding := false
 
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() and event.is_action_pressed("jump"):
 		_state_machine.transition_to("Move/Air", { impulse = jump_impulse })
 		owner.play_jump()
+	
+			
+	if Gamestate.state.can_wall_jump && event.is_action_pressed("wall_slide"):
+		is_wall_sliding = true
+		
+	if event.is_action_released("wall_slide"):
+		is_wall_sliding = false
 		
 	
 func physics_process(delta: float) -> void:

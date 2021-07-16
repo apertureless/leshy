@@ -14,7 +14,6 @@ export var max_jump_count := 1
 onready var jump_delay: Timer = $JumpDelay
 onready var controls_freeze: Timer = $ControlsFreeze
 
-var is_wall_sliding := false
 var jump_count := 0
 
 func unhandled_input(event: InputEvent) -> void:
@@ -37,11 +36,6 @@ func unhandled_input(event: InputEvent) -> void:
 		emit_signal("jumped")
 	if event.is_action_released("jump"):
 		cut_jump()
-		
-	if Gamestate.state.can_wall_jump && event.is_action_pressed("wall_slide"):
-		is_wall_sliding = true
-	if event.is_action_released("wall_slide"):
-		is_wall_sliding = false
 		
 	else:
 		move.unhandled_input(event)
@@ -87,7 +81,7 @@ func physics_process(delta: float) -> void:
 	elif Gamestate.state.can_ledge && owner.ledge_detector.is_against_ledge():
 		_state_machine.transition_to("Ledge", { move_state = move })
 	
-	if Gamestate.state.can_wall_jump && owner.is_on_wall() && is_wall_sliding:
+	if Gamestate.state.can_wall_jump && owner.is_on_wall() && move.is_wall_sliding:
 		# Direction of the wall. If we are colliding
 		# with a wall in front us or behind us.
 		var wall_normal: float = owner.get_slide_collision(0).normal.x
