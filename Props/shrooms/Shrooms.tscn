@@ -79,6 +79,7 @@ anims/hide = SubResource( 2 )
 anims/show = SubResource( 3 )
 
 [node name="Gracetimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -13,10 +13,20 @@ var max_speed := max_speed_default
 var velocity := Vector2.ZERO
 var dash_count := 0
 var dash_direction := Vector2.ZERO
+var is_wall_sliding := false
 
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() and event.is_action_pressed("jump"):
 		_state_machine.transition_to("Move/Air", { impulse = jump_impulse })
+		owner.play_jump()
+	
+			
+	if Gamestate.state.can_wall_jump && event.is_action_pressed("wall_slide"):
+		is_wall_sliding = true
+		
+	if event.is_action_released("wall_slide"):
+		is_wall_sliding = false
+		
 	
 func physics_process(delta: float) -> void:
 	var _dir = get_movement_direction()
@@ -64,3 +74,14 @@ func enter(msg: Dictionary = {}) -> void:
 	
 func exit() -> void:
 	$Air.disconnect("jumped", $Idle.jump_delay, "start")
+
+
+func _run_dust() -> void:
+	var d = preload("res://Player/Dust/Run.tscn").instance()
+	var dir = get_movement_direction()
+	d.scale.x = dir.x
+	d.position = owner.global_position
+	owner.get_parent().add_child(d)
+	
+func _on_Skin_run_dust() -> void:
+	_run_dust()

@@ -20,7 +20,7 @@ func unhandled_input(event: InputEvent) -> void:
 	var move = get_parent()
 
 	# Dash 
-	if move.dash_count == 0 and event.is_action_pressed("dash"):
+	if  Gamestate.state.can_dash && move.dash_count == 0 and event.is_action_pressed("dash"):
 		move.dash_count += 1
 		_state_machine.transition_to("Move/Dash", { 
 			direction = Vector2(move.dash_direction.normalized().x, 0.0)
@@ -36,6 +36,7 @@ func unhandled_input(event: InputEvent) -> void:
 		emit_signal("jumped")
 	if event.is_action_released("jump"):
 		cut_jump()
+		
 	else:
 		move.unhandled_input(event)
 
@@ -77,10 +78,10 @@ func physics_process(delta: float) -> void:
 		var target_state := "Move/Idle" if move.get_movement_direction().x == 0.0 else "Move/Run"
 		_state_machine.transition_to(target_state)
 		
-	elif owner.ledge_detector.is_against_ledge():
+	elif Gamestate.state.can_ledge && owner.ledge_detector.is_against_ledge():
 		_state_machine.transition_to("Ledge", { move_state = move })
-		
-	if owner.is_on_wall():
+	
+	if Gamestate.state.can_wall_jump && owner.is_on_wall() && move.is_wall_sliding:
 		# Direction of the wall. If we are colliding
 		# with a wall in front us or behind us.
 		var wall_normal: float = owner.get_slide_collision(0).normal.x
@@ -94,6 +95,7 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	var move = get_parent()
+	jump_dust()
 	move.enter(msg)
 	move.acceleration.x = acceleration_x
 	owner.skin.play("jump_up")
@@ -136,8 +138,26 @@ func jump() -> void:
 	move.velocity = calculate_jump_velocity(move.jump_impulse)
 	jump_count += 1
 	
+	
 func cut_jump() -> void:
 	var move = get_parent()
 	if move.velocity.y < -100:
 		move.velocity = Vector2.ZERO
 		move.velocity = calculate_jump_velocity(move.jump_impulse * move.small_jump_factor)
+		
+func jump_dust() -> void:
+	var move = get_parent()
+	var _dir = move.get_movement_direction().x
+	var d = preload("res://Player/Dust/Jump.tscn").instance()
+	
+	if move.velocity.x > 10 or move.velocity.x < 10: 
+		d.jump_type = 1
+	
+	if _dir != 0.0:
+		d.scale.x = _dir
+	d.position = owner.global_position + Vector2(0, 3)
+#	print("pGlobal air", owner.global_position)
+#	print("dPos", d.position)
+
+	owner.get_parent().add_child(d)
+	

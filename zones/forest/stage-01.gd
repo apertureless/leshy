@@ -16,7 +16,7 @@ func _on_entering_starting_area(_body) -> void:
 	Gamestate.state.current_level = "res://zones/fox_house/stage-01.tscn"
 	Gamestate.state.current_position = "FinishingPosition"
 	Gamestate.state.current_dir = 1
-	Game.main.load_gamestate()
+	Game.main.load_gamestate() 
 	
 func _on_entering_finish_area(_body) -> void:
 	Gamestate.state.current_level = "res://zones/fox_house/stage-01.tscn"
