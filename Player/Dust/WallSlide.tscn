@@ -36,7 +36,8 @@ tracks/1/keys = {
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 8
-frame = 55
+frame = 49
 
 [node name="Anim" type="AnimationPlayer" parent="."]
+autoplay = "dust_0"
 anims/dust_0 = SubResource( 1 )
