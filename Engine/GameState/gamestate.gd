@@ -13,7 +13,9 @@ var debug_state = {
 	"can_double_jump": true,
 	"can_wall_jump": true,
 	"can_dash": true,
-	"can_ledge": false
+	"can_ledge": false,
+	"life": 3,
+	"max_life": 3
 }  
 
 func _ready() -> void:
@@ -39,7 +41,9 @@ func _get_initial_gamestate() -> Dictionary:
 		"can_double_jump": true,
 		"can_wall_jump": true,
 		"can_dash": true,
-		"can_ledge": false
+		"can_ledge": false,
+		"life": 3,
+		"max_life": 3
 	}
 
 # Public save gamestate function
