@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://zones/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tileset_fox_dirt_tileset.tres" type="TileSet" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/fox-home-exit.png" type="Texture" id=6]
 [ext_resource path="res://Props/checkpoint/Checkpoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Props/shrooms/Shrooms.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/player_test.png" type="Texture" id=9]
+[ext_resource path="res://assets/player_test_small.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.3755, 20.2664 )
@@ -124,5 +126,13 @@ position = Vector2( 1968, -352 )
 
 [node name="Shrooms16" parent="Shrooms" index="18" instance=ExtResource( 8 )]
 position = Vector2( 2000, -352 )
+
+[node name="player_test" type="Sprite" parent="." index="13"]
+position = Vector2( 144, -24 )
+texture = ExtResource( 9 )
+
+[node name="player_test_small" type="Sprite" parent="player_test" index="0"]
+position = Vector2( 64, 8 )
+texture = ExtResource( 10 )
 
 [editable path="Dropzone"]

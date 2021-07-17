@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://zones/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://zones/forest/stage-01.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/background-3.png" type="Texture" id=8]
 [ext_resource path="res://assets/background-1.png" type="Texture" id=9]
 [ext_resource path="res://enemies/bunny/Bunny.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/player_test_small.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.0226, 24.5714 )
@@ -88,3 +89,7 @@ color = Color( 0.8, 1, 0.8, 1 )
 [node name="Bunny" parent="." index="9" instance=ExtResource( 10 )]
 position = Vector2( 287.778, -126.675 )
 scale = Vector2( -1, 1 )
+
+[node name="player_test_small" type="Sprite" parent="." index="10"]
+position = Vector2( -408, -32 )
+texture = ExtResource( 11 )
