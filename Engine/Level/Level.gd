@@ -2,7 +2,7 @@ class_name Level
 extends Node
 
 onready var player := $Player
-onready var player_camera := $Player/Camera2D
+onready var player_camera := $CameraRig
 onready var tiles := $GroundTiles
 
 func _ready() -> void:
