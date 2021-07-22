@@ -10,8 +10,12 @@ var _velocity := Vector2.ZERO
 var particle_timer := 0.05
 
 func unhandled_input(event: InputEvent) -> void:
+	var move = get_parent()
 	if event.is_action_pressed("jump"):
 		jump()
+		
+	if event.is_action_released("wall_slide"):
+		move.is_wall_sliding = false
 
 func physics_process(delta: float) -> void:
 	var move = get_parent()

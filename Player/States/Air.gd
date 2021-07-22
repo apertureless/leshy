@@ -37,6 +37,9 @@ func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
 		cut_jump()
 		
+	if event.is_action_released("wall_slide"):
+		move.is_wall_sliding = false
+		
 	else:
 		move.unhandled_input(event)
 
