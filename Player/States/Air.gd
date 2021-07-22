@@ -118,6 +118,7 @@ func enter(msg: Dictionary = {}) -> void:
 func exit() -> void:
 	var move = get_parent()
 	move.acceleration = move.acceleration_default
+	move.max_speed = move.max_speed_default
 	jump_count = 0
 	move.exit()
 
