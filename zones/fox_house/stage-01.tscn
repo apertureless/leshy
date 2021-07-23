@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://zones/Level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tileset_fox_dirt_tileset.tres" type="TileSet" id=2]
@@ -8,8 +8,6 @@
 [ext_resource path="res://assets/fox-home-exit.png" type="Texture" id=6]
 [ext_resource path="res://Props/checkpoint/Checkpoint.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Props/shrooms/Shrooms.tscn" type="PackedScene" id=8]
-[ext_resource path="res://assets/player_test.png" type="Texture" id=9]
-[ext_resource path="res://assets/player_test_small.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20.3755, 20.2664 )
@@ -120,19 +118,20 @@ position = Vector2( 1968, -352 )
 [node name="Shrooms16" parent="Shrooms" index="18" instance=ExtResource( 8 )]
 position = Vector2( 2000, -352 )
 
-[node name="player_test" type="Sprite" parent="." index="13"]
-position = Vector2( 144, -24 )
-texture = ExtResource( 9 )
-
-[node name="player_test_small" type="Sprite" parent="player_test" index="0"]
-position = Vector2( 64, 8 )
-texture = ExtResource( 10 )
-
-[node name="FinishingPosition" parent="." index="14"]
+[node name="FinishingPosition" parent="." index="13"]
 position = Vector2( 3012.71, -692.612 )
 
 [node name="CollisionShape2D" parent="FinishingPosition" index="0"]
 position = Vector2( -0.749958, -16.5195 )
 shape = SubResource( 2 )
+
+[node name="Forground" type="TileMap" parent="." index="14"]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -2883422, 2, 65538, -2359228, 1073741826, 1, -2359220, 1073741826, 65536, -2359219, 1073741826, 1, -1769377, 536870914, 65537, -1769345, 536870914, 3, -1769344, 2, 3, -1769342, 2, 65537, -1769340, 536870914, 1, -1769331, 2, 65538, -786365, 1073741826, 1, -786363, 1073741826, 0, -327654, 536870914, 1, -327650, 536870914, 0, -327626, 536870915, 0, -327624, 2, 0, -327603, 536870915, 0 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [editable path="Dropzone"]

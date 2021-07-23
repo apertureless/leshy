@@ -88,6 +88,7 @@ script = ExtResource( 12 )
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 14 )
 color = Color( 1, 1, 1, 0.52549 )
+energy = 0.72
 shadow_gradient_length = 490.1
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
