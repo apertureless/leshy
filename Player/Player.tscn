@@ -30,13 +30,6 @@ script = ExtResource( 2 )
 position = Vector2( 0, -6.07742 )
 shape = SubResource( 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 0, -80 )
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 3 )
 initial_state = NodePath("Spawn")
@@ -95,6 +88,7 @@ script = ExtResource( 12 )
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 14 )
 color = Color( 1, 1, 1, 0.52549 )
+energy = 0.72
 shadow_gradient_length = 490.1
 
 [node name="jump" type="AudioStreamPlayer2D" parent="."]

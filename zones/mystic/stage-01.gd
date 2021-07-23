@@ -13,13 +13,13 @@ func _connect_areas() -> void:
 	_ret = $FinishingPosition.connect("body_entered", self, "_on_entering_finish_area")
 
 func _on_entering_starting_area(_body) -> void:
-	Gamestate.state.current_level = "res://zones/fox_house/stage-01.tscn"
+	Gamestate.state.current_level = "res://zones/forest/stage-01.tscn"
 	Gamestate.state.current_position = "FinishingPosition"
 	Gamestate.state.current_dir = 1
 	Game.main.load_gamestate() 
 	
 func _on_entering_finish_area(_body) -> void:
-	Gamestate.state.current_level = "res://zones/mystic/stage-01.tscn"
+	Gamestate.state.current_level = "res://zones/fox_house/stage-01.tscn"
 	Gamestate.state.current_position = "StartingPosition"
 	Gamestate.state.current_dir = 1
 	Game.main.load_gamestate()

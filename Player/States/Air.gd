@@ -37,6 +37,9 @@ func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("jump"):
 		cut_jump()
 		
+	if event.is_action_released("wall_slide"):
+		move.is_wall_sliding = false
+		
 	else:
 		move.unhandled_input(event)
 
@@ -118,6 +121,7 @@ func enter(msg: Dictionary = {}) -> void:
 func exit() -> void:
 	var move = get_parent()
 	move.acceleration = move.acceleration_default
+	move.max_speed = move.max_speed_default
 	jump_count = 0
 	move.exit()
 
