@@ -3,7 +3,7 @@ extends Area2D
 var is_active: bool = false
 
 func _ready() -> void:
-	$Sprite.frame = 0
+	_play_default_animation()
 	if Gamestate.state.active_checkpoint[0] == name and \
 		Gamestate.state.active_checkpoint[1] == owner.filename:
 			activate_checkpoint()
@@ -11,13 +11,27 @@ func _ready() -> void:
 func activate_checkpoint() -> void:
 	print("Activating checkpoint")
 	if is_active:
-		$Sprite.frame = 1;
-		$Light2D.enabled = true
+		_play_active_animation()
+		_enable_light()
 	else:
-		$Sprite.frame = 1;
-		$Light2D.enabled = true
-		is_active = true
+		_play_enter_animation()
+		_enable_light()
+		_set_active_state()
 
+func _play_enter_animation() -> void:
+	$Sprite.frame = 1
+	
+func _play_active_animation() -> void:
+	$Sprite.frame = 1
+
+func _play_default_animation() -> void:
+	$Sprite.frame = 1
+	
+func _enable_light() -> void:
+	$Light2D.enabled = true
+	
+func _set_active_state() -> void:
+	is_active = true
 
 func _on_Checkpoint_body_entered(body: Node) -> void:
 	activate_checkpoint()
