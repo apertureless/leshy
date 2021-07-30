@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD/MenuButton.gd" type="Script" id=1]
 [ext_resource path="res://HUD/Silver.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.356863, 0.32549, 0.490196, 1 )
+corner_detail = 15
+anti_aliasing = false
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -11,8 +16,10 @@ size = 20
 font_data = ExtResource( 2 )
 
 [node name="MenuButton" type="Button"]
-margin_right = 600.0
+margin_right = 160.0
 margin_bottom = 20.0
+size_flags_horizontal = 0
+custom_styles/focus = SubResource( 3 )
 custom_fonts/font = SubResource( 1 )
 flat = true
 script = ExtResource( 1 )
