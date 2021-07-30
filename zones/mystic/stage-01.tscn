@@ -704,31 +704,31 @@ tile_data = PoolIntArray( -3211191, 6, 0, -2949071, 536870915, 0, -2949066, 3, 0
 [node name="Tree" type="AnimatedSprite" parent="BackTiles" index="1"]
 position = Vector2( 952, -272 )
 frames = SubResource( 61 )
-frame = 30
+frame = 57
 playing = true
 
 [node name="Tree2" type="AnimatedSprite" parent="BackTiles" index="2"]
 position = Vector2( 1288, -64 )
 frames = SubResource( 61 )
-frame = 29
+frame = 56
 playing = true
 
 [node name="Tree4" type="AnimatedSprite" parent="BackTiles" index="3"]
 position = Vector2( 456, 192 )
 frames = SubResource( 61 )
-frame = 28
+frame = 55
 playing = true
 
 [node name="Tree3" type="AnimatedSprite" parent="BackTiles" index="4"]
 position = Vector2( 1376, -512 )
 frames = SubResource( 61 )
-frame = 29
+frame = 56
 playing = true
 
 [node name="Tree5" type="AnimatedSprite" parent="BackTiles" index="5"]
 position = Vector2( 592, -64 )
 frames = SubResource( 61 )
-frame = 29
+frame = 56
 playing = true
 
 [node name="GroundTiles" parent="." index="2"]
