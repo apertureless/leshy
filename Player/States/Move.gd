@@ -42,7 +42,7 @@ func physics_process(delta: float) -> void:
 	# Flip sprite 
 	if _dir.x != 0.0:
 		dash_direction = _dir
-		owner.ledge_detector.scale.x = sign(_dir.x)
+		owner.ledge_detector.scale.x = 1 if _dir.x > 0.0 else -1
 		owner.skin.set_flip_h(_dir.x > 0)
 		
 	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
@@ -79,7 +79,7 @@ func exit() -> void:
 func _run_dust() -> void:
 	var d = preload("res://Player/Dust/Run.tscn").instance()
 	var dir = get_movement_direction()
-	d.scale.x = dir.x
+	d.scale.x = 1 if dir.x > 0.0 else -1
 	d.position = owner.global_position
 	owner.get_parent().add_child(d)
 	
