@@ -41,7 +41,8 @@ script = ExtResource( 1 )
 script = ExtResource( 4 )
 max_speed_default = Vector2( 130, 800 )
 acceleration_default = Vector2( 3000, 2000 )
-jump_impulse = 550.0
+jump_impulse = 420.0
+max_fall_speed = 280.0
 
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 5 )
