@@ -75,7 +75,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 13 ]
+"values": [ 17 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -91,7 +91,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 12 ]
+"values": [ 16 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -262,8 +262,8 @@ anims/spawn = SubResource( 8 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.78043, -11.0917 )
 texture = ExtResource( 1 )
-hframes = 16
-frame = 14
+hframes = 18
+frame = 17
 __meta__ = {
 "_editor_description_": ""
 }
