@@ -98,7 +98,6 @@ func physics_process(delta: float) -> void:
 
 func enter(msg: Dictionary = {}) -> void:
 	var move = get_parent()
-	jump_dust()
 	move.enter(msg)
 	move.acceleration.x = acceleration_x
 	owner.skin.play("jump_up")
@@ -114,6 +113,9 @@ func enter(msg: Dictionary = {}) -> void:
 		controls_freeze.start()
 		move.max_speed.x = max(move.max_speed_default.x, abs(move.velocity.x))
 		move.acceleration.y = move.acceleration_default.y
+	
+	if "dust" in msg:
+		jump_dust()
 		
 	jump_delay.start()
 	
@@ -137,11 +139,12 @@ func calculate_jump_velocity(impulse := 0.0) -> Vector2:
 	)
 
 func jump() -> void:
+	jump_dust()
 	var move = get_parent()
 	move.velocity = Vector2.ZERO
 	move.velocity = calculate_jump_velocity(move.jump_impulse)
 	jump_count += 1
-	
+
 	
 func cut_jump() -> void:
 	var move = get_parent()
@@ -154,15 +157,12 @@ func jump_dust() -> void:
 	var _dir = move.get_movement_direction().x
 	var d = preload("res://Player/Dust/Jump.tscn").instance()
 	
-	print(move.velocity.x)
 	if move.velocity.x != 0:
 		d.jump_type = 1
 	
 	if _dir != 0.0:
 		d.scale.x = 1 if _dir > 0.0 else -1
 	d.position = owner.global_position + Vector2(0, 1)
-#	print("pGlobal air", owner.global_position)
-#	print("dPos", d.position)
 
 	owner.get_parent().add_child(d)
 	

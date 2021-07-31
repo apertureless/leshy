@@ -17,7 +17,7 @@ var is_wall_sliding := false
 
 func unhandled_input(event: InputEvent) -> void:
 	if owner.is_on_floor() and event.is_action_pressed("jump"):
-		_state_machine.transition_to("Move/Air", { impulse = jump_impulse })
+		_state_machine.transition_to("Move/Air", { impulse = jump_impulse, dust = true })
 		owner.play_jump()
 	
 			
