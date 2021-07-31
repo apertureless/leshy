@@ -1,7 +1,23 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/fox_player_low_pixel_anim.png" type="Texture" id=1]
 [ext_resource path="res://Player/Skin.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=10]
+resource_name = "dash"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 19 ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "die"
@@ -266,6 +282,7 @@ tracks/0/keys = {
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/dash = SubResource( 10 )
 anims/die = SubResource( 1 )
 anims/idle = SubResource( 2 )
 anims/jump_down = SubResource( 3 )
@@ -279,8 +296,8 @@ anims/wall_slide = SubResource( 9 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.78043, -11.0917 )
 texture = ExtResource( 1 )
-hframes = 19
-frame = 18
+hframes = 20
+frame = 19
 __meta__ = {
 "_editor_description_": ""
 }

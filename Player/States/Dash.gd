@@ -8,6 +8,7 @@ var direction := Vector2.ZERO
 var _velocity := Vector2.ZERO
 
 func enter(msg: Dictionary = {}):
+	owner.skin.play("dash")
 	timer.connect("timeout", self, "_on_DashTimer_timeout", [], CONNECT_ONESHOT)
 	direction = msg.direction
 	timer.start()
