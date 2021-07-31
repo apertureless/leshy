@@ -6,7 +6,8 @@ func _ready() -> void:
 	_play_default_animation()
 	if Gamestate.state.active_checkpoint[0] == name and \
 		Gamestate.state.active_checkpoint[1] == owner.filename:
-			activate_checkpoint()
+			is_active = true
+			call_deferred("activate_checkpoint")
 	
 func activate_checkpoint() -> void:
 	print("Activating checkpoint")
@@ -14,6 +15,7 @@ func activate_checkpoint() -> void:
 		_play_active_animation()
 		_enable_light()
 	else:
+		_play_sound()
 		_play_enter_animation()
 		_enable_light()
 		_set_active_state()
@@ -32,6 +34,9 @@ func _enable_light() -> void:
 	
 func _set_active_state() -> void:
 	is_active = true
+
+func _play_sound() -> void:
+	$AudioStreamPlayer2D.play()
 
 func _on_Checkpoint_body_entered(body: Node) -> void:
 	activate_checkpoint()
