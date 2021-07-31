@@ -7,7 +7,7 @@ var saved_state := {}
 
 var debug_state = {
 	"active_checkpoint": ["", ""],
-	"current_level": "res://zones/fox_house/stage-01.tscn",
+	"current_level": "res://zones/mystic/stage-01.tscn",
 	"current_position": "StartingPosition",
 	"current_dir": 1,
 	"can_double_jump": true,

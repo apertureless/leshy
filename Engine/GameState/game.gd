@@ -1,4 +1,4 @@
 extends Node
 
 var main = null
-var debug = true
+var debug = false

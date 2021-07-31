@@ -647,7 +647,7 @@ animations = [ {
 "frames": [ SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ), SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ) ],
 "loop": true,
 "name": "appear",
-"speed": 5.0
+"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=280]
@@ -704,31 +704,31 @@ tile_data = PoolIntArray( -3211191, 6, 0, -2949071, 536870915, 0, -2949066, 3, 0
 [node name="Tree" type="AnimatedSprite" parent="BackTiles" index="1"]
 position = Vector2( 952, -272 )
 frames = SubResource( 215 )
-frame = 57
+frame = 20
 playing = true
 
 [node name="Tree2" type="AnimatedSprite" parent="BackTiles" index="2"]
 position = Vector2( 1288, -64 )
 frames = SubResource( 215 )
-frame = 56
+frame = 19
 playing = true
 
 [node name="Tree4" type="AnimatedSprite" parent="BackTiles" index="3"]
 position = Vector2( 456, 192 )
 frames = SubResource( 215 )
-frame = 55
+frame = 18
 playing = true
 
 [node name="Tree3" type="AnimatedSprite" parent="BackTiles" index="4"]
 position = Vector2( 1376, -512 )
 frames = SubResource( 215 )
-frame = 56
+frame = 19
 playing = true
 
 [node name="Tree5" type="AnimatedSprite" parent="BackTiles" index="5"]
 position = Vector2( 592, -64 )
 frames = SubResource( 215 )
-frame = 56
+frame = 19
 playing = true
 
 [node name="GroundTiles" parent="." index="2"]
