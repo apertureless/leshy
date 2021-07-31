@@ -43,7 +43,7 @@ func load_gamestate() -> void:
 			
 			# Show hud
 			load_state = 3
-			$loadtimer.set_wait_time( 0.3 )
+			$loadtimer.set_wait_time( 0.5 )
 			$loadtimer.start()
 		3:
 			# Fade In Animation

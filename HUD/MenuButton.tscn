@@ -3,15 +3,15 @@
 [ext_resource path="res://HUD/MenuButton.gd" type="Script" id=1]
 [ext_resource path="res://HUD/Silver.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.356863, 0.32549, 0.490196, 1 )
 corner_detail = 15
 anti_aliasing = false
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 font_data = ExtResource( 2 )
 
@@ -19,8 +19,8 @@ font_data = ExtResource( 2 )
 margin_right = 160.0
 margin_bottom = 20.0
 size_flags_horizontal = 0
-custom_styles/focus = SubResource( 3 )
-custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 flat = true
 script = ExtResource( 1 )
 __meta__ = {
@@ -34,7 +34,8 @@ margin_left = 2.15655
 margin_top = 1.88699
 margin_right = 2.15656
 margin_bottom = 1.88699
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1

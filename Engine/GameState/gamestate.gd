@@ -4,6 +4,9 @@ signal gamestate_changed
 
 var state := {} setget _set_state
 var saved_state := {}
+# Save File
+var _fname := "gamestate.dat"
+var first_start := true
 
 var debug_state = {
 	"active_checkpoint": ["", ""],
@@ -23,7 +26,7 @@ func _ready() -> void:
 	
 func initiate() -> void:
 	state = _get_initial_gamestate()
-	#saved_state.state.duplicate(true)
+	saved_state = state.duplicate(true)
 	
 func _set_state(value) -> void:
 	state = value
@@ -52,13 +55,56 @@ func save_gamestate() -> bool:
 
 # Save gamestate to file?
 func _save_gamestate() -> bool:
-	pass
-	return true
+	saved_state = state.duplicate(true)
+	var f := File.new()
+	var err := f.open_encrypted_with_pass(_fname, File.WRITE, OS.get_unique_id())
+	
+	if err == OK:
+		f.store_var(state)
+		f.close()
+		return true
+	else:
+		f.close()
+		return false
 
 # Public load gamestate method
-func load_gamestate() -> Dictionary:
-	return _load_gamestate()
+func load_gamestate() -> bool:
+	var saved = _load_gamestate()
+	
+	# Save File is empty
+	if saved.empty():
+		# Check if backup state is empty
+		if !saved_state.empty():
+			state = saved_state.duplicate(true)
+		else:
+			state = _get_initial_gamestate()
+			saved_state = state.duplicate(true)
+	
+	state = saved
+	saved_state = state.duplicate(true)
+	first_start = false
+	return true
 	
 # Load gamestate from file
 func _load_gamestate() -> Dictionary:
-	return {}
+	var f := File.new()
+	
+	if not f.file_exists(_fname):
+		return {}
+	
+	var err := f.open_encrypted_with_pass(_fname, File.READ, OS.get_unique_id())
+	
+	if err != OK:
+		f.close()
+		return {}
+	
+	var data = f.get_var()
+	f.close()
+	
+	return data
+
+func has_gamestate_file() -> bool:
+	var tmp = _load_gamestate()
+	
+	return !tmp.empty()
+

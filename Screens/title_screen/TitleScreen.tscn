@@ -51,12 +51,15 @@ size_flags_horizontal = 2
 margin_top = 43.0
 margin_right = 12.0
 margin_bottom = 68.0
-scene_to_load = "res://zones/forest/World.tscn"
+focus_mode = 0
+disabled = true
 
 [node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
 margin_top = 72.0
 margin_right = 12.0
 margin_bottom = 97.0
+focus_mode = 0
+disabled = true
 
 [node name="ExitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 7 )]
 margin_top = 101.0
