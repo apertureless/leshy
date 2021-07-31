@@ -48,6 +48,7 @@ func physics_process(delta: float) -> void:
 #		_state_machine.transition_to("Ledge", { move_state = move, velocity = _velocity })
 
 func enter(msg: Dictionary = {}) -> void:
+	owner.skin.play("wall_slide")
 	var move = get_parent()
 	move.enter(msg)
 	
