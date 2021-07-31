@@ -154,12 +154,13 @@ func jump_dust() -> void:
 	var _dir = move.get_movement_direction().x
 	var d = preload("res://Player/Dust/Jump.tscn").instance()
 	
-	if move.velocity.x > 10 or move.velocity.x < 10: 
+	print(move.velocity.x)
+	if move.velocity.x != 0:
 		d.jump_type = 1
 	
 	if _dir != 0.0:
-		d.scale.x = _dir
-	d.position = owner.global_position + Vector2(0, 3)
+		d.scale.x = 1 if _dir > 0.0 else -1
+	d.position = owner.global_position + Vector2(0, 1)
 #	print("pGlobal air", owner.global_position)
 #	print("dPos", d.position)
 

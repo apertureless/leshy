@@ -15,7 +15,7 @@
 [ext_resource path="res://Player/FloorDetector.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/light.png" type="Texture" id=14]
 [ext_resource path="res://Player/States/Wall.gd" type="Script" id=15]
-[ext_resource path="res://assets/jump.wav" type="AudioStream" id=16]
+[ext_resource path="res://assets/sfx/jump.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3.61843, 6.01799 )
@@ -42,7 +42,6 @@ script = ExtResource( 4 )
 max_speed_default = Vector2( 130, 800 )
 acceleration_default = Vector2( 3000, 2000 )
 jump_impulse = 420.0
-max_fall_speed = 280.0
 
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 5 )

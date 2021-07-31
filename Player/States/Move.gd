@@ -6,7 +6,7 @@ export var max_speed_default := Vector2(500.0, 900.0)
 export var acceleration_default := Vector2(100000, 3000.0)
 export var jump_impulse := 900.0
 export var small_jump_factor := 0.5
-export var max_fall_speed := 300.0
+export var max_fall_speed := 280.0
 
 var acceleration := acceleration_default
 var max_speed := max_speed_default
@@ -54,7 +54,7 @@ static func calculate_velocity(
 	acceleration: Vector2,
 	delta: float,
 	move_direction: Vector2,
-	max_speed_fall := 1500.0
+	max_speed_fall := 280.0
 ) -> Vector2:
 	var new_velocity := old_velocity
 	new_velocity += move_direction * acceleration * delta
