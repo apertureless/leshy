@@ -1,6 +1,5 @@
 extends Control
 
-var scene_path : String 
 onready var fade = $FadeIn
 
 func _ready() -> void:
