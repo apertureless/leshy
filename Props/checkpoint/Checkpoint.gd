@@ -19,6 +19,7 @@ func activate_checkpoint() -> void:
 		_play_enter_animation()
 		_enable_light()
 		_set_active_state()
+		Game.main.show_bottom_message("Game Saved")
 
 func _play_enter_animation() -> void:
 	$Sprite.frame = 1
@@ -46,3 +47,4 @@ func _on_Checkpoint_body_entered(body: Node) -> void:
 	Gamestate.state.current_level = Gamestate.state.active_checkpoint[1]
 	
 	Gamestate.save_gamestate()
+

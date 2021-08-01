@@ -100,4 +100,6 @@ func _on_gamestate_change() -> void:
 	pass
 
 
-
+func show_bottom_message(message: String) -> void:
+	$HUDLayer/HUD/SpecialMessage/Polygon2D/Label.text = message
+	$HUDLayer/HUD/SpecialMessage/anim.play("show")

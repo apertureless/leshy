@@ -1,6 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Screens/main/main.gd" type="Script" id=1]
+[ext_resource path="res://HUD/Silver.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -24.0876 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "show"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -24.0876 ), Vector2( 0, -24.0876 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade_in"
@@ -46,6 +81,32 @@ one_shot = true
 one_shot = true
 
 [node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Node2D" parent="HUDLayer"]
+
+[node name="SpecialMessage" type="Node2D" parent="HUDLayer/HUD"]
+position = Vector2( 0, 180 )
+
+[node name="Polygon2D" type="Polygon2D" parent="HUDLayer/HUD/SpecialMessage"]
+color = Color( 0, 0, 0, 0.447059 )
+polygon = PoolVector2Array( 0, 0, 320, 0, 320, 24, 0, 24 )
+
+[node name="Label" type="Label" parent="HUDLayer/HUD/SpecialMessage/Polygon2D"]
+margin_left = 3.99126
+margin_top = 2.36017
+margin_right = 315.0
+margin_bottom = 21.3602
+custom_fonts/font = SubResource( 3 )
+text = "Game Saved"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="HUDLayer/HUD/SpecialMessage"]
+anims/hide = SubResource( 4 )
+anims/show = SubResource( 5 )
 
 [node name="TextLayer" type="CanvasLayer" parent="."]
 
